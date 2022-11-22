@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SharedModule } from './shared/shared.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { environment } from '../environments/environment';
 
 @NgModule({
   imports: [
@@ -24,9 +25,13 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     BrowserAnimationsModule,
     FlightCancellingModule,
 
-    FlightLibModule.forRoot(),
+    environment.oem === 'mazda' ? FlightLibModule.forRoot() : [],
     SharedModule.forRoot(),
-    RouterModule.forRoot(APP_ROUTES),
+    /**
+     * command line: nx build flight-app -c mazda-prod
+     */
+    environment.oem === 'mazda' ? MazdaModule.forRoot(MAZDA_CONFIG) : [],
+    environment.oem === 'toyota' ? RouterModule.forRoot(TOYOTA_ROUTES) : [],
   ],
   declarations: [
     AppComponent,

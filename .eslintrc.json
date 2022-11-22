@@ -17,6 +17,28 @@
                 "onlyDependOnLibsWithTags": ["domain:flights", "domain:shared"]
               },
               {
+                "sourceTag": "domain:mazda",
+                "onlyDependOnLibsWithTags": ["domain:mazda", "domain:shared"]
+              },
+              {
+                "sourceTag": "domain:toyota",
+                "onlyDependOnLibsWithTags": [
+                  "domain:toyota",
+                  //"domain:mazda:api:toyota",
+                  "domain:shared",
+                  "domain:core"
+                ]
+              },
+              {
+                "sourceTag": "type:feature",
+                "onlyDependOnLibsWithTags": [
+                  "type:api",
+                  "type:ui",
+                  "type:domain-logic",
+                  "type:domain-util"
+                ]
+              },
+              {
                 "sourceTag": "domain:dashboard",
                 "onlyDependOnLibsWithTags": [
                   "domain:dashboard",

@@ -47,6 +47,28 @@
           ],
           "outputHashing": "all"
         },
+        "mazda-prod": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "tsConfig": "apps/flight-app/tsconfig-mazda.app.json",
+          "fileReplacements": [
+            {
+              "replace": "apps/flight-app/src/environments/environment.ts",
+              "with": "apps/flight-app/src/environments/environment.mazda.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
         "development": {
           "buildOptimizer": false,
           "optimization": false,
@@ -101,5 +123,5 @@
       }
     }
   },
-  "tags": ["type:app", "domain:flights"]
+  "tags": ["type:app", "domain:mazda", "domain:mazda:api:toyota"]
 }
